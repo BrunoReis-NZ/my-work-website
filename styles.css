@@ -1,0 +1,688 @@
+   body {
+     width: 100vw;
+     height: 100vh;
+     margin: 0;
+     display: grid;
+     grid-template-rows: 100px 1fr 100px;
+     /* Header, Main, Footer */
+     grid-template-columns: 30% 70%;
+     /* Sidebar, Main */
+     grid-template-areas:
+       "header header"
+       "sidebar main"
+       "footer footer";
+   }
+
+   header {
+     grid-area: header;
+     background-color: #3498db;
+     color: #fff;
+     text-align: center;
+     width: 100%;
+
+   }
+
+   aside {
+     grid-area: sidebar;
+     background-color: #2ecc71;
+     color: #fff;
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+     align-items: stretch;
+     justify-content: space-between;
+     /* Evenly distribute cards */
+   }
+
+   main {
+     width: 100%;
+     grid-area: main;
+
+   }
+
+   footer {
+     grid-area: footer;
+     background-color: #3498db;
+     color: #fff;
+     padding: 10px;
+     text-align: center;
+   }
+
+   /* CARDS BUTTONS */
+
+   .card {
+     background-color: #34495e;
+     border-radius: 10px;
+     color: #fff;
+     padding: 10px;
+     margin-bottom: 10px;
+     cursor: pointer;
+   }
+
+   .card:hover {
+     background-color: #2c3e50;
+     /* Change color on hover */
+   }
+
+   /* CARD1 */
+
+   .card1 {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     height: 100%;
+   }
+
+   .card1 div {
+     display: flex;
+     justify-content: center;
+     width: 100%;
+     margin: 10px 0;
+   }
+
+   .card1 textarea {
+     height: 50px;
+     width: 80%;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+   }
+
+   .card1 button {
+     background-color: #008CBA;
+     border: none;
+     border-radius: 10px;
+     color: white;
+     padding: 10px 20px;
+     text-align: center;
+     text-decoration: none;
+     display: flex;
+     font-size: 14px;
+     cursor: pointer;
+   }
+
+   .card1 #display-area {
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+     width: 80%;
+     padding: 10px;
+   }
+
+   /* CARD2 */
+
+   .card2 {
+     width: 100%;
+     height: 100%;
+     display: grid;
+     grid-template-rows: 25% 25% 40% 10%;
+     grid-template-columns: 80% 20%;
+     grid-template-areas:
+
+       "schedule-container button1"
+       "schedule-container button2"
+       "schedule-display ."
+       "schedule-display button3";
+   }
+
+   .card2 .schedule-container {
+     grid-area: schedule-container;
+     border: solid 1px #2ecc71;
+     border-radius: 10px;
+     width: 80%;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-evenly;
+     align-items: center;
+     margin: auto;
+     padding: 5px;
+   }
+
+   .card2 .schedule-entry {
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     width: 80%;
+     font-size: 18px;
+     margin: 3px;
+   }
+
+   .card2 #schedule-entry #schedule-type {
+     border: solid 1px #2ecc71;
+     border-radius: 10px;
+     padding: 3px;
+   }
+
+   .card2 #schedule-entry #schedule-time {
+     border: solid 1px #2ecc71;
+     border-radius: 10px;
+     padding: 3px;
+   }
+
+   .card2 .button1 {
+     grid-area: button1;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     width: 80%;
+     font-size: 18px;
+     margin: 3px;
+
+   }
+
+   .card2 .button2 {
+     grid-area: button2;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     width: 80%;
+     font-size: 18px;
+     margin: 3px;
+
+
+   }
+
+   .card2 .button3 {
+     grid-area: button3;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-evenly;
+     align-items: center;
+     width: 80%;
+     font-size: 18px;
+     margin: 3px;
+
+
+   }
+
+   .card2 .schedule-display {
+     grid-area: schedule-display;
+     border: solid 1px #2ecc71;
+     border-radius: 10px;
+     width: 60%;
+     margin: auto;
+     padding: 20px;
+     text-align: center;
+     
+   }
+
+   .card2 .button {
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+     display: flex;
+     flex-direction: column;
+   }
+
+   .card2 button {
+     background-color: #008CBA;
+     border: none;
+     border-radius: 10px;
+     margin: 10px;
+     color: white;
+     padding: 10px 20px;
+     text-align: center;
+     align-items: center;
+     justify-content: center;
+     text-decoration: none;
+     display: flex;
+     font-size: 14px;
+     cursor: pointer;
+   }
+
+   /* CARD 3 */
+
+   .card3 {
+     display: grid;
+     flex-direction: column;
+     align-items: center;
+     width: 100%;
+     height: 100%;
+     grid-template-rows: 10% auto auto;
+     grid-template-columns: auto auto 40%;
+     grid-template-areas:
+
+       "heading button "
+       "sub-heading-one links-one "
+       "sub-heading-two links-two ";
+
+   }
+
+   .card3 .heading {
+     grid-area: heading;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card3 .sub-heading-one {
+     grid-area: sub-heading-one;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card3 .sub-heading-two {
+     grid-area: sub-heading-two;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card3 .links-one {
+     grid-area: links-one;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card3 .links-two {
+     grid-area: links-two;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card3 ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+   }
+
+   .card3 li {
+     margin: 10px 0;
+   }
+
+   .card3 a {
+     text-decoration: none;
+     color: #3498db;
+   }
+
+   .card3 a:hover {
+     color: #2980b9;
+   }
+
+   .card3 .button {
+     grid-area: button;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+
+   }
+
+   .card3 button {
+     background-color: #008CBA;
+     border: none;
+     border-radius: 10px;
+     color: white;
+     padding: 10px 20px;
+     margin-top: 20px;
+     cursor: pointer;
+   }
+
+   /* CARD 4 */
+
+   .card4 {
+     display: grid;
+     flex-direction: column;
+     grid-template-rows: 10% 15% 10% 15% 50%;
+     grid-template-columns: 100%;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     justify-content: center;
+     align-content: center;
+   }
+
+   .card4 .headings {
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card4 h3 {
+     margin: 0;
+     padding: 0;
+   }
+
+   .card4 .buttons {
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+   }
+
+   .card4 .content-display {
+     display: flex;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+     width: 60%;
+     height: 60%;
+     margin: auto;
+     padding: 20px;
+   }
+
+   .card4 button {
+     background-color: #008CBA;
+     border: none;
+     border-radius: 10px;
+     color: white;
+     padding: 10px 20px;
+     margin: 10px;
+     cursor: pointer;
+   }
+
+   /* CARD 5 */
+
+   .card5 {
+     display: grid;
+     flex-direction: column;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     justify-content: center;
+     align-content: center;
+     grid-template-rows: 5% 5% 20% 5% 20% 40% 5%;
+     grid-template-columns: 20% 30% 30% 20%;
+     grid-template-areas:
+
+       ". heading heading ."
+       ". sub-heading1 sub-heading1 ."
+       ". codes1 codes1 button1"
+       ". sub-heading2 sub-heading2 ."
+       ". codes2 codes2 button2"
+       ". content-display-card5 content-display-card5 ."
+       " . link link . ";
+   }
+
+   .card5 .heading {
+     grid-area: heading;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 h3 {
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 .sub-heading1 {
+     grid-area: sub-heading1;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 h4 {
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 .codes1 {
+     grid-area: codes1;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+   .card5 .button1 {
+     grid-area: button1;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: auto;
+     padding: 0%;
+   }
+
+   .card5 .sub-heading2 {
+     grid-area: sub-heading2;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 .codes2 {
+     grid-area: codes2;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 p {
+     margin: 2px;
+     padding: 2px;
+   }
+
+   .card5 .button2 {
+     grid-area: button2;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+   .card5 .content-display-card5 {
+     grid-area: content-display-card5;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+     width: 60%;
+     height: 60%;
+     margin: auto;
+     padding: 20px;
+   }
+
+   .card5 .link {
+     grid-area: link;
+     color: #008CBA;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     margin: 0;
+     padding: 0%;
+   }
+
+
+   .card5 button {
+     background-color: #008CBA;
+     border: none;
+     border-radius: 10px;
+     color: white;
+     padding: 10px 20px;
+     margin: 10px;
+     cursor: pointer;
+   }
+
+   
+   /* CARD 6 */
+   .card6 {
+    display: grid;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    grid-template-rows: 20% 40% 40%;
+    grid-template-columns: 50% 50%;
+    grid-template-areas:
+
+      "heading heading"
+      "password ."
+      ". ."
+  }
+
+  .card6 .heading {
+    grid-area: heading;
+    color: #008CBA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0%;
+  }
+
+  .password {
+    display: flex;
+    flex-direction: column; /* Align elements vertically */
+    align-items: flex-start; /* Align elements to the start (left) */
+    gap: 10px; /* Add spacing between elements */
+  }
+  
+  .password-entry-01,
+  .password-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .card6 .page-name {
+    border: 1px solid #008CBA;
+    border-radius: 3px;
+    padding-left: 5px;  
+    padding-right: 5px; 
+    padding-top: 1px;  
+    padding-bottom: 1px;  
+    margin: 20px;
+}
+
+   /* CARD 9 */
+
+   .card9 {
+     display: grid;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     grid-template-rows: 10% auto;
+     grid-template-columns: 100%;
+     grid-template-areas:
+
+       "heading"
+       "todo-container";
+   }
+
+   .card9 .heading {
+     grid-area: heading;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .card9 h2 {
+     color: #008CBA;
+   }
+
+   .card9 .todo-container {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-start;
+
+   }
+
+   .card9 #todo-input {
+     height: 30px;
+     width: 80%;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+     margin: auto;
+     margin-bottom: 10px;
+   }
+
+   .card9 #button {
+     height: 20px;
+     width: 40%;
+     border: 1px solid #2ecc71;
+     border-radius: 5%;
+     margin: auto;
+   }
+
+   /* CARD 10 */
+
+   .card10 {
+     display: grid;
+     width: 100%;
+     height: 100%;
+     align-items: center;
+     grid-template-rows: 10% 5% 85%;
+     grid-template-columns: 100%;
+     grid-template-areas:
+
+       "text-area text-area"
+       "button button"
+       "note-container note-container";
+   }
+
+   .card10 .text-area {
+     grid-area: text-area;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .card10 #note-input {
+     height: 50px;
+     width: 80%;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+   }
+
+   .card10 .button {
+     grid-area: button;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+
+   .card10 #button {
+     width: 40%;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+   }
+
+   .card10 .note-container {
+     grid-area: note-container;
+     border: 1px solid #2ecc71;
+     border-radius: 10px;
+     width: 90%;
+     height: 90%;
+     margin: auto;
+     padding: 20px;
+   }

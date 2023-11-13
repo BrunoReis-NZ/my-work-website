@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+    <h1>My Personal Page</h1>
+  </header>
+
+  <aside id="sidebar">
+    <div class="card" onclick="showContent(1)">Daily EARs</div>
+    <div class="card" onclick="showContent(2)">Daily Schedule</div>
+    <div class="card" onclick="showContent(3)">Links</div>
+    <div class="card" onclick="showContent(4)">CORs and EARs</div>
+    <div class="card" onclick="showContent(5)">Outbound</div>
+    <div class="card" onclick="showContent(6)">Passwords</div>
+    <div class="card" onclick="showContent(7)">Knowledge Base</div>
+    <div class="card" onclick="showContent(8)">Card 8</div>
+    <div class="card" onclick="showContent(9)">To-Do List</div>
+    <div class="card" onclick="showContent(10)">Notes</div>
+  </aside>
+
+  <main id="main-content">
+    <h2>Main Content</h2>
+    <p>This is the default content of your website.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Created by Bruno Reis. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      showContent(2);
+      // Card 1
+      const storedInfo = localStorage.getItem("card1-info");
+      if (storedInfo) {
+        const displayArea = document.getElementById("display-area");
+        displayArea.innerHTML = `<p>${storedInfo}</p>`;
+      }
+      
+      // Card 2
+      const storedSchedule = localStorage.getItem("schedule");
+      if (storedSchedule) {
+        const scheduleDisplay = document.getElementById("schedule-display");
+        scheduleDisplay.innerHTML = storedSchedule;
+      }
+
+      // Card 9
+      const storedTodoList = localStorage.getItem("card9-todo-list");
+      if (storedTodoList) {
+        const todoList = document.getElementById("todo-list");
+        todoList.innerHTML = storedTodoList;
+      }
+
+      // Card 10
+      const storedNotes = localStorage.getItem("card10-notes");
+      if (storedNotes) {
+        const noteContainer = document.querySelector(".note-container");
+        noteContainer.innerHTML = storedNotes || "";
+      }
+
+    });
+
+    function showContent(cardNumber) {
+      const cardContents = {
+        1: `
+                <div class= "card1">
+                  <div>
+                    <textarea id="card1-input" placeholder="Enter information..." rows="2" cols="50"></textarea>
+                  </div>
+                  <div>
+                    <button onclick="displayInfo()">Display Information</button>
+                  </div>
+                  <div id="display-area"></div>
+                  <div>
+                    <button onclick="clearInfo()">Clear</button>
+                  </div>
+                </div>
+              `,
+        2: `
+                <div class="card2">
+
+                  <div class="schedule-container">
+
+                    <div id="schedule-entry" class="schedule-entry">
+                      <span><label for="schedule-type">Activity Type:</label></span>
+                      <span><select id="schedule-type">
+                        <option value="work">Work</option>
+                        <option value="work">Outbound</option>                        
+                        <option value="break">Break</option>
+                        <option value="ert">ERT</option>
+                        <option value="meeting">Meeting</option>
+                        <option value="exception">Exception</option>
+                        </select></span>
+                      <span><label for="schedule-time">Time:</label></span>
+                      <span><input type="time" id="schedule-time"></span>
+                    </div>
+
+                  </div>
+
+                  <div class="button1">
+                    <button id="button" onclick="addScheduleEntry()">Add Schedule Entry</button>
+                  </div>
+
+                  <div class="button2">
+                    <button id="button" onclick="displaySchedule()">Display Schedule</button>
+                  </div>
+
+                  <div class="schedule-display">
+                    <!-- Schedule will be displayed here -->
+                  </div>
+
+                  <div class="button3">
+                    <button id="button" onclick="clearSchedule()">Clear</button>
+                  </div>
+
+                </div>
+              `,
+        3: `
+                <div class= "card3">
+
+                  <div class="heading">
+                    <h2>LINKS</h2>
+                  </div>
+
+                  <div = class="sub-heading-one">
+                    <h3>Everyday Links</h3>
+                  </div>
+
+                  <div class="links-one">
+                    <ul>
+                      <li><a href="https://www.tenancy.govt.nz" target="_blank"><span>Tenancy Services Website</span></a></li>
+                      <li><a href="https://kb.info.business.govt.nz/topics/3/questions" target="_blank"><span>Service Delivery Knowledgebase</span></a></li>
+                      <li><a href="file://wd.govt.nz/dfs/SharedData/Wellington/Bowen%20Street/Help%20and%20Manual%20Projects/Published%20Projects/Service%20Centre%20Manual/index.html" target="_blank"><span>Service Centre Manual</span></a></li>
+                      <li><a href="https://pulse.cces.one.nz/pulse/plugins/pulse/#/" target="_blank"><span>Pulse</span></a></li>
+                      <li><a href="https://wfm.cces.one.nz/wfm/login" target="_blank"><span>Workforce Management</span></a></li>
+                      <li><a href="https://www.google.com/maps" target="_blank"><span>Google Maps</span></a></li>
+                      <li><a href="http://crm/CASE/main.aspx" target="_blank"><span>CRM</span></a></li>
+                      <li><a href="https://outlook.office.com/mail/bonds@tenancy.govt.nz/" target="_blank"><span>Bonds Outlook</span></a></li>
+                    </ul>
+                  </div>
+
+                  <div class="button">
+                    <button onclick="openAllLinks()">Open All Links</button>
+                  </div>
+
+                  <div class="sub-heading-two">
+                    <h3>Useful Links</h3>
+                  </div>
+
+                  <div class="links-two">
+                    <ul>
+                      <li><a href="https://mbienewzealand.sharepoint.com/sites/TeTaura-Hub" target="_blank"><span>MBIE Te Taura</span></a></li>
+                      <li><a href="https://performancemanager10.successfactors.com/sf/home?company=MBIEPROD&loginMethod=SSO&_s.crb=N1urD3lFdWVaG5BDQ3q%252fiOIiqh5%252bKg3H%252bVF%252f5oQZ5Lk%253d" target="_blank"><span>Success Factor: Home</span></a></li>
+                      <li><a href="https://www.mbieinformationresources.com/j/ep?AI=mOZS016s5NqL_C19&P1=frameset.htm" target="_blank"><span>MBIE Information Resources Portal</span></a></li>
+                      <li><a href="https://www.legislation.govt.nz/act/public/1986/0120/latest/DLM94278.html" target="_blank"><span>Residential Tenancies Act 1986</span></a></li>
+                      <li><a href="https://apmbi01.auondemand.com/NxIA/Portal/Evaluations/Dashboard.aspx" target="_blank"><span>Nice Quality Central</span></a></li>
+                      <li><a href="https://mako.wd.govt.nz/otcs/llisapi.dll?func=ll.gettz&OTDS&NextURL=https%3A%2F%2Fmako%2Ewd%2Egovt%2Enz%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D140076146%26objAction%3Dbrowse%26viewType%3D1" target="_blank"><span>Mako Bond Outbound Call Project</span></a></li>
+                    </ul>
+                  </div>
+              `,
+        4: `
+                <div class="card4">
+
+                  <div class="headings">
+                    <h3>COR<h3>
+                  </div>
+
+                  <div class="buttons">
+                    <button onclick="showButtonContent('BRF Status')">BRF Status</button>
+                    <button onclick="showButtonContent('Dispute-cor')">Dispute</button>
+                    <button onclick="showButtonContent('COD Reply')">COD Reply</button>
+                    <button onclick="showButtonContent('S22 Reply')">S22 Reply</button>
+                    <!-- Add buttons for other items here -->
+                  </div>
+
+                  <div class="headings">
+                    <h3>EAR<h3>
+                  </div>
+
+                  <div class="buttons">
+                    <button onclick="showButtonContent('Dispute-ear')">Dispute</button>
+                    <button onclick="showButtonContent('Refund')">Refund</button>
+                    <!-- Add buttons for other items here -->
+                  </div>
+
+                  <div class="content-display">
+                    <!-- Content will be displayed here -->
+                  </div>
+
+                </div>
+              `,
+        5: `
+                <div class="card5">
+
+                  <div class="heading">
+                    <h3>OUTBOUND CALLS<h3>
+                  </div>
+
+                  <div class="sub-heading1">
+                    <h4>Sucessful Contact Codes<h4>
+                  </div>
+
+                  <div class="codes1">
+                    <span><p>PHONE~SC~Bond Refunded<p></span>
+                    <span><p>PHONE~SC~Condolences Letter Resent<p></span>
+                    <span><p>PHONE~SC~NNA Resent<p></span>
+                    <span><p>PHONE~SC~TSM Resent<p></span>
+                    <span><p>PHONE~SC~Current Bond<p></span>
+                  </div>
+
+                  <div class="button1">
+                    <button onclick="showButtonContentCard5('Sucessful')">Sucessful</button>
+                  </div>
+
+                  <div class="sub-heading2">
+                    <h4>Unsucessful Contact Codes<h4>
+                  </div>
+
+                  <div class="codes2">
+                    <span><p>PHONE~NC~Invalid Ph Number - Adhoc Sent<p></span>
+                    <span><p>PHONE~NC~No Answer - Adhoc Sent<p></span>
+                    <span><p>PHONE~NC~No Info Available<p></span>
+                    <span><p>PHONE~NC~VM Left - Adhoc Sent<p></span>
+                  </div>
+
+                  <div class="button2">
+                    <button onclick="showButtonContentCard5('Unsucessful')">Unsucessful</button>
+                  </div>
+
+                  <div class="content-display-card5">
+                    <!-- Content will be displayed here -->
+                  </div>
+
+                  <div class="link">
+                    <a href="https://kb.info.business.govt.nz/questions/3386" target="_blank"><span>Mako Bond Outbound Call Project</span></a>
+                  <div>
+
+
+                </div>
+              `,
+        6: `
+              <div class="card6">
+  
+                <div class="heading">
+                  <h2>Passwords</h2>
+                </div>
+
+                <div class="password">
+
+                  <div class="password-entry-01">
+                    <span class="page-name">B2K</span>
+                    <button onclick="copyToClipboard('olireisb')">Copy Username</button>
+                    <button onclick="copyToClipboard('B2kChampion#')">Copy Password</button>
+                    <button onclick="showPassword('olireisb', 'B2kChampion#')">Show Password</button>
+                  </div>
+
+                  <div class="password-entry">
+                    <span class="page-name">Pulse</span>
+                    <button onclick="copyToClipboard('mbie_AdvisorPulse')">Copy Username</button>
+                    <button onclick="copyToClipboard('Display2000')">Copy     Password</button>
+                    <button onclick="showPassword('mbie_AdvisorPulse', 'Display2000')">Show Password</button>
+                  </div>
+                
+                  <div class="password-entry">
+                    <span class="page-name">GWM</span>
+                    <button onclick="copyToClipboard('mbie_oliveib1')">Copy Username</button>
+                    <button onclick="copyToClipboard('Genesys8554#')">Copy Password</button>
+                    <button onclick="showPassword('mbie_oliveib1', 'Genesys8554#')">Show Password</button>
+                   </div>         
+  
+                  <!-- Add more password entries as needed -->
+              
+                </div>  
+
+              </div>
+              `,
+              7: `
+<div class="card7">
+  <div class="heading">
+    <h2>Knowledge Base</h2>
+  </div>
+  <ul id="knowledge-list">
+    <li id="link" class="top-link"><a href="#" target="_blank">Link 1</a></li>
+    <li id="link" class="top-link"><a href="#" target="_blank">Link 2</a></li>
+    <li id="link" class="top-link"><a href="#" target="_blank">Link 3</a></li>
+    <li id="link" class="top-link"><a href="#" target="_blank">Link 4</a></li>
+    <li id="link" class="top-link"><a href="#" target="_blank">Link 5</a></li>
+    <li id="link" ><a href="#" target="_blank">Link 6</a></li>
+    <li id="link" ><a href="#" target="_blank">Link 7</a></li>
+    <li id="link" ><a href="#" target="_blank">Link 8</a></li>
+    <li id="link"  ><a href="#" target="_blank">Link 9</a></li>
+    <li id="link" ><a href="#" target="_blank">Link 10</a></li>
+  </ul>
+</div>
+`,
+
+
+
+
+
+        8: `
+                <!-- Content for Card 8 -->
+              `,
+        9: `
+                <div class="card9">
+                
+                  <div class="heading">
+                    <h2>To-Do List</h2>
+                  </div>
+
+                  <div class="input">
+                    
+
+                  <div class="todo-container">
+                    <input type="text" id="todo-input" placeholder="Enter a new item..." />
+                    <button id="button" onclick="addTodoItem()">Add Item</button>
+                    <ul id="todo-list"></ul>
+                  </div>
+                
+                </div>
+              `,
+        10: `
+                <div class="card10">
+                
+                  <div class="text-area">
+                    <textarea id="note-input" placeholder="Enter your note..." rows="4" cols="50"></textarea>
+                  </div>
+
+                  <div class="button">
+                    <button id="button" onclick="saveNote()">Save Note</button>
+                  </div>
+
+                  <div class="note-container">
+                    <!-- Notes will be displayed here -->
+                  </div>
+      </div>
+              `,
+      };
+
+      const mainContent = document.getElementById("main-content");
+      mainContent.innerHTML = cardContents[cardNumber];
+
+      if (cardNumber === 1) {
+        // Inside the function for cardNumber 1 (as before)
+        const storedInfo = localStorage.getItem("card1-info");
+        if (storedInfo) {
+          const displayArea = document.getElementById("display-area");
+          displayArea.innerHTML = `<p>${storedInfo}</p>`;
+        }
+      }
+
+      if (cardNumber === 2) {
+        // Inside the function for cardNumber 2
+        const storedSchedule = localStorage.getItem("schedule");
+        if (storedSchedule) {
+          const scheduleDisplay = document.querySelector(".schedule-display");
+          scheduleDisplay.innerHTML = storedSchedule;
+        }
+      }
+
+      if (cardNumber === 9) {
+        // Inside the function for cardNumber 9
+        const storedTodoList = localStorage.getItem("card9-todo-list");
+        if (storedTodoList) {
+          const todoList = document.getElementById("todo-list");
+          todoList.innerHTML = storedTodoList;
+        }
+      }
+
+      if (cardNumber === 10) {
+        // Inside the function for cardNumber 10
+        const storedNotes = localStorage.getItem("card10-notes");
+        if (storedNotes) {
+          const noteContainer = document.querySelector(".note-container");
+          noteContainer.innerHTML = storedNotes || "";
+        }
+      }
+    }
+
+    // Functions for Card 1
+    function displayInfo() {
+      const inputText = document.getElementById("card1-input").value;
+      const displayArea = document.getElementById("display-area");
+
+      // Convert newline characters to HTML line breaks
+      const formattedText = inputText.replace(/\n/g, "<br>");
+
+      displayArea.innerHTML = `<p>${formattedText}</p>`;
+
+      // Store the formatted information in localStorage
+      localStorage.setItem("card1-info", `<p>${formattedText}</p>`);
+    }
+    function clearInfo() {
+      document.getElementById("card1-input").value = "";
+      document.getElementById("display-area").innerHTML = "";
+
+      // Clear the stored information in localStorage
+      localStorage.removeItem("card1-info");
+    }
+
+    // Functions for Card 2
+    function displaySchedule() {
+      const scheduleContainer = document.querySelector(".schedule-container");
+      const scheduleEntries =
+        scheduleContainer.getElementsByClassName("schedule-entry");
+
+      const scheduleDisplay = document.querySelector(".schedule-display");
+      const scheduleList = document.createElement("ul");
+
+      Array.from(scheduleEntries).forEach((entry) => {
+        const scheduleType = entry.querySelector("#schedule-type").value;
+        const scheduleTime = entry.querySelector("#schedule-time").value;
+
+        if (scheduleTime) {
+          scheduleList.appendChild(
+            createScheduleItem(scheduleType, scheduleTime)
+          );
+
+          // Convert time to Date object for comparison
+          const scheduledTime = new Date();
+          const [hours, minutes] = scheduleTime.split(":");
+          scheduledTime.setHours(parseInt(hours, 10));
+          scheduledTime.setMinutes(parseInt(minutes, 10));
+
+          // Set up timers for notifications
+          setNotificationTimers(scheduledTime, scheduleType);
+        }
+      });
+
+      scheduleDisplay.innerHTML = "";
+      scheduleDisplay.appendChild(scheduleList);
+
+      // Store the schedule information in localStorage
+      localStorage.setItem("schedule", scheduleList.innerHTML);
+    }
+    function setNotificationTimers(scheduledTime, activity) {
+      const fiveMinutesBefore = new Date(
+        scheduledTime.getTime() - 5 * 60 * 1000
+      );
+      const oneMinuteBefore = new Date(
+        scheduledTime.getTime() - 1 * 60 * 1000
+      );
+
+      // Set up timers for notifications
+      setupTimer(fiveMinutesBefore, `5 minutes until ${activity}`);
+      setupTimer(oneMinuteBefore, `1 minute until ${activity}`);
+    }
+    function setupTimer(time, message) {
+      const now = new Date().getTime();
+      const timeDiff = time - now;
+
+      if (timeDiff > 0) {
+        setTimeout(() => {
+          // Display a Windows alert when the timer expires
+          window.alert(message);
+        }, timeDiff);
+      }
+    }
+    function createScheduleItem(activity, time) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${activity.charAt(0).toUpperCase() +
+        activity.slice(1).replace(/-/g, " ")
+        }: ${time}`;
+      return listItem;
+    }
+    function clearSchedule() {
+      document.querySelector(".schedule-display").innerHTML = "";
+
+      // Clear the stored schedule information in localStorage
+      localStorage.removeItem("schedule");
+    }
+    function addScheduleEntry() {
+      const scheduleContainer = document.querySelector(".schedule-container");
+
+      // Create a new schedule entry div
+      const newScheduleEntry = document.createElement("div");
+      newScheduleEntry.className = "schedule-entry"; // Apply the card2 class
+      newScheduleEntry.id = "schedule-entry"; // Apply the schedule-entry id
+
+      // Schedule Type Selector
+      const scheduleTypeLabel = document.createElement("label");
+      scheduleTypeLabel.textContent = "Activity Type:";
+      const scheduleTypeSelector = document.createElement("select");
+      scheduleTypeSelector.id = "schedule-type";
+      const activityTypes = [
+        "work",
+        "outbound",
+        "break",
+        "ert",
+        "meeting",
+        "exception",
+      ];
+      activityTypes.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent =
+          type.charAt(0).toUpperCase() + type.slice(1).replace(/-/g, " ");
+        scheduleTypeSelector.appendChild(option);
+      });
+
+      // Schedule Time Input
+      const scheduleTimeLabel = document.createElement("label");
+      scheduleTimeLabel.textContent = "Time:";
+      const scheduleTimeInput = document.createElement("input");
+      scheduleTimeInput.type = "time";
+      scheduleTimeInput.id = "schedule-time";
+
+      // Append elements to the new schedule entry div
+      newScheduleEntry.appendChild(scheduleTypeLabel);
+      newScheduleEntry.appendChild(scheduleTypeSelector);
+      newScheduleEntry.appendChild(scheduleTimeLabel);
+      newScheduleEntry.appendChild(scheduleTimeInput);
+
+      // Append the new schedule entry to the container
+      scheduleContainer.appendChild(newScheduleEntry);
+    }
+    
+    // Functions for Card 3
+    function openAllLinks() {
+      const links = [
+        "https://www.tenancy.govt.nz",
+        "https://kb.info.business.govt.nz/topics/3/questions",
+        "file://wd.govt.nz/dfs/SharedData/Wellington/Bowen%20Street/Help%20and%20Manual%20Projects/Published%20Projects/Service%20Centre%20Manual/index.html",
+        "https://pulse.cces.one.nz/pulse/plugins/pulse/#/",
+        "https://wfm.cces.one.nz/wfm/login",
+        "https://www.google.com/maps",
+        "http://crm/CASE/main.aspx",
+        "https://outlook.office.com/mail/bonds@tenancy.govt.nz/",
+      ];
+
+      links.forEach((link) => window.open(link, "_blank"));
+    }
+
+    // Functions for Card 4
+    function showButtonContent(buttonLabel) {
+      const contentDisplay = document.querySelector(".content-display");
+      const buttonContent = getButtonContent(buttonLabel);
+
+      // Display content in the container
+      contentDisplay.innerHTML = `<p>${buttonContent}</p>`;
+
+      // Copy content to clipboard (use the same function as in card 5)
+      copyToClipboardCard5(buttonContent);
+    }
+    function getButtonContent(buttonLabel) {
+      // Define content for each button label
+      const buttonContents = {
+        "BRF Status": `XX called about BRF status.<br><br>Status:<br><br>==> Bank Account Missing<br>==>Signature Missing or Differs<br><br>Advised the XX to send COD + ID and call us after to confirm we received. <br><br>After receiving email and checked if ok, send EAR to refund.`,
+
+        "Dispute-cor": `XX Called and asked to place the bond into dispute.`,
+
+        "Dispute-ear": `Kia Ora XX<br><br>Please place this bond into dispute as requested by XX.<br><br>Thanks!`,
+
+        "COD Reply": `XX has sent email with COD + ID / Bank Account.<br><br>Email  ==> <br>Date and Time  ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
+
+        Refund: `Kia Ora XX<br><br>Please refund as below:<br><br>TITLE NAME $ AMOUNT to bank account: XX XXXX XXXXXXX XX<br><br>Thanks!`,
+
+        "S22 Reply": `XX has sent email with S22 Reply <br><br>Email  ==><br>Date and Time  ==><br>Reply Status ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
+        // Add content for other buttons here
+      };
+
+      // Return content for the specified button label
+      return buttonContents[buttonLabel] || "No content available.";
+    }
+    function copyToClipboard(text) {
+      // Replace <br> with newline characters
+      const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
+
+      // Create a temporary textarea to copy plain text to clipboard
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = plainText;
+      document.body.appendChild(tempTextArea);
+
+      // Select the text in the textarea
+      tempTextArea.select();
+      tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+
+      // Copy to clipboard
+      document.execCommand("copy");
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback (you can customize this)
+      alert(`Content copied to clipboard:\n${plainText}`);
+    }
+
+    // Functions for Card 5
+    function showButtonContentCard5(buttonLabel) {
+      const contentDisplayCard5 = document.querySelector(
+        ".content-display-card5"
+      );
+      const buttonContentCard5 = getButtonContentCard5(buttonLabel);
+
+      // Display content in the container
+      contentDisplayCard5.innerHTML = `<p>${buttonContentCard5}</p>`;
+
+      // Copy content to clipboard
+      copyToClipboardCard5(buttonContentCard5);
+    }
+    function getButtonContentCard5(buttonLabel) {
+      // Define content for each button label in Card 5
+      const buttonContentsCard5 = {
+        Sucessful: `Details of the phone call: <br>- name of person you spoke with ><br>- phone number you used ><br>- time that you made the call ><br>- summary of the phone call/action taken:<br><br>Advised about refund process.<br>Uncollected email sent.`,
+
+        Unsucessful: `Details of the phone call: <br>- phone number/s you used ><br>- time that you made the call ><br>- Unsuccessful in making contact.<br><br>Did not left a message.<br>Uncollected email sent/No email on record.`,
+        // Add content for other buttons here
+      };
+
+      // Return content for the specified button label
+      return buttonContentsCard5[buttonLabel] || "No content available.";
+    }
+    function copyToClipboardCard5(text) {
+      // Replace <br> with newline characters
+      const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
+
+      // Create a temporary textarea to copy plain text to clipboard
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = plainText;
+      document.body.appendChild(tempTextArea);
+
+      // Select the text in the textarea
+      tempTextArea.select();
+      tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+
+      // Copy to clipboard
+      document.execCommand("copy");
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback (you can customize this)
+      alert(`Content copied to clipboard:\n${plainText}`);
+    }
+
+   // Functions for Card 6 
+    const hiddenUsernames = ["olireisb", "mbie_AdvisorPulse", "mbie_oliveib1"]; // Add more usernames as needed
+    const hiddenPasswords = ["B2kChampion#", "Display2000", "Genesys8554#"]; // Add more passwords as needed
+    function copyToClipboard(text) {
+      // Copy text to clipboard without showing an alert
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = text;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+    }
+    function showPassword(username, password) {
+      const pin = prompt("Enter PIN to show password:");
+      if (pin === "8554") {
+        const index = hiddenUsernames.indexOf(username);
+        if (index !== -1) {
+          // Display username and password in an alert
+          alert(
+            `Username: ${hiddenUsernames[index]}\nPassword: ${hiddenPasswords[index]}`
+          );
+        } else {
+          alert("Invalid username");
+        }
+      } else {
+        alert("Incorrect PIN. Password cannot be shown.");
+      }
+    }
+
+    // Functions for Card 7
+    const knowledgeList = document.getElementById("knowledge-list");
+    const links = knowledgeList.getElementById("#li");
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Move the clicked link to the top of the list
+      knowledgeList.prepend(link);
+
+      // Ensure that only the top 5 links have a different style
+      const topLinks = knowledgeList.querySelectorAll(".top-link");
+      topLinks.forEach((topLink, index) => {
+        if (index < 5) {
+          topLink.classList.add("highlighted-link");
+        } else {
+          topLink.classList.remove("highlighted-link");
+        }
+      });
+    });
+  });
+
+
+
+   
+
+    // Functions for Card 8
+
+    // Functions for Card 9
+    function addTodoItem() {
+      const todoInput = document.getElementById("todo-input");
+      const todoList = document.getElementById("todo-list");
+
+      const todoText = todoInput.value.trim();
+      if (todoText === "") {
+        return; // Do not add empty items
+      }
+
+      const todoItem = document.createElement("li");
+      todoItem.innerHTML = `
+    <input type="checkbox" onchange="removeTodoItem(this)">
+    <span>${todoText}</span>
+  `;
+
+      todoList.appendChild(todoItem);
+      todoInput.value = "";
+
+      // Store the updated to-do list in localStorage
+      updateTodoListStorage();
+    }
+    function removeTodoItem(checkbox) {
+      const todoItem = checkbox.parentNode;
+      const todoList = document.getElementById("todo-list");
+      // Check if the item is marked as completed (strikethrough)
+      const isCompleted = todoItem.classList.contains("completed");
+
+      if (!isCompleted) {
+        // If it's not completed, mark it as completed (strikethrough)
+        todoItem.classList.add("completed");
+      } else {
+        // If it's already completed, remove the item from the list
+        todoList.removeChild(todoItem);
+      }
+
+      // Store the updated to-do list in localStorage
+      updateTodoListStorage();
+    }
+    function updateTodoListStorage() {
+      const todoList = document.getElementById("todo-list");
+      localStorage.setItem("card9-todo-list", todoList.innerHTML);
+    }
+
+    // Functions for Card 10
+    function saveNote() {
+      console.log("Saving note");
+
+      const noteInput = document.getElementById("note-input").value;
+
+      if (noteInput.trim() === "") {
+        // Do not save empty notes
+        return;
+      }
+
+      const noteContainer = document.querySelector(".note-container");
+
+      // Create a new note container
+      const newNote = document.createElement("div");
+      newNote.className = "note";
+
+      // Display the note content
+      newNote.innerHTML = `
+          <p>${noteInput}</p>
+          <div>
+            <button onclick="copyNoteToClipboard(this)">Copy to Clipboard</button>
+            <button onclick="clearNoteContainer(this)">Clear Note</button>
+          </div>
+        `;
+
+      // Append the new note container to the note container
+      noteContainer.appendChild(newNote);
+
+      // Store the updated notes in localStorage
+      localStorage.setItem("card10-notes", noteContainer.innerHTML);
+
+      // Clear the note input
+      document.getElementById("note-input").value = "";
+
+      // Log the stored notes to check if they are updated
+      const storedNotes = localStorage.getItem("card10-notes");
+      console.log("Stored notes:", storedNotes);
+    }
+    function copyNoteToClipboard(button) {
+      const noteContent =
+        button.parentNode.parentNode.querySelector("p").textContent;
+
+      // Copy note content to clipboard
+      copyToClipboard(noteContent);
+    }
+    function clearNoteContainer(button) {
+      const noteContainer = button.parentNode.parentNode;
+      noteContainer.remove();
+
+      // Update: Remove only the specific note from localStorage
+      const updatedNotes =
+        document.querySelector(".note-container").innerHTML;
+      localStorage.setItem("card10-notes", updatedNotes);
+    }
+
+  </script>
+
+</body>
+
+</html>
