@@ -1,75 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
 
-  <body>
-    <header>
-      <h1>Your Website Header</h1>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Website Title</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-    <aside id="sidebar">
-      <div class="card" onclick="showContent(1)">Daily EARs</div>
-      <div class="card" onclick="showContent(2)">Daily Schedule</div>
-      <div class="card" onclick="showContent(3)">Links</div>
-      <div class="card" onclick="showContent(4)">CORs and EARs</div>
-      <div class="card" onclick="showContent(5)">Outbound</div>
-      <div class="card" onclick="showContent(6)">Passwords</div>
-      <div class="card" onclick="showContent(7)">Knowledge Base</div>
-      <div class="card" onclick="showContent(8)">Card 8</div>
-      <div class="card" onclick="showContent(9)">To-Do List</div>
-      <div class="card" onclick="showContent(10)">Notes</div>
-    </aside>
+<body>
+  <header>
+    <h1>Your Website Header</h1>
+  </header>
 
-    <main id="main-content">
-      <h2>Main Content</h2>
-      <p>This is the default content of your website.</p>
-    </main>
+  <aside id="sidebar">
+    <div class="card" onclick="showContent(1)">Daily EARs</div>
+    <div class="card" onclick="showContent(2)">Daily Schedule</div>
+    <div class="card" onclick="showContent(3)">Links</div>
+    <div class="card" onclick="showContent(4)">CORs and EARs</div>
+    <div class="card" onclick="showContent(5)">Outbound</div>
+    <div class="card" onclick="showContent(6)">Passwords</div>
+    <div class="card" onclick="showContent(7)">Knowledge Base</div>
+    <div class="card" onclick="showContent(8)">Card 8</div>
+    <div class="card" onclick="showContent(9)">To-Do List</div>
+    <div class="card" onclick="showContent(10)">Notes</div>
+  </aside>
 
-    <footer>
-      <p>&copy; 2023 Your Website Name. All rights reserved.</p>
-    </footer>
+  <main id="main-content">
+    <h2>Main Content</h2>
+    <p>This is the default content of your website.</p>
+  </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("Page loaded");
-        showContent(1);
-        // On page load, check if there is stored information and display it
-        const storedInfo = localStorage.getItem("card1-info");
-        if (storedInfo) {
-          const displayArea = document.getElementById("display-area");
-          displayArea.innerHTML = `<p>${storedInfo}</p>`;
-        }
+  <footer>
+    <p>&copy; 2023 Your Website Name. All rights reserved.</p>
+  </footer>
 
-        // Check if there is stored schedule information and display it
-        const storedSchedule = localStorage.getItem("schedule");
-        if (storedSchedule) {
-          const scheduleDisplay = document.getElementById("schedule-display");
-          scheduleDisplay.innerHTML = storedSchedule;
-        }
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Page loaded");
+      showContent(1);
+      // On page load, check if there is stored information and display it
+      const storedInfo = localStorage.getItem("card1-info");
+      if (storedInfo) {
+        const displayArea = document.getElementById("display-area");
+        displayArea.innerHTML = `<p>${storedInfo}</p>`;
+      }
 
-        // Add the following code inside the existing DOMContentLoaded event listener
-        const storedTodoList = localStorage.getItem("card9-todo-list");
-        if (storedTodoList) {
-          const todoList = document.getElementById("todo-list");
-          todoList.innerHTML = storedTodoList;
-        }
+      // Check if there is stored schedule information and display it
+      const storedSchedule = localStorage.getItem("schedule");
+      if (storedSchedule) {
+        const scheduleDisplay = document.getElementById("schedule-display");
+        scheduleDisplay.innerHTML = storedSchedule;
+      }
 
-        const storedNotes = localStorage.getItem("card10-notes");
-        console.log(storedNotes);
-        if (storedNotes) {
-          const noteContainer = document.querySelector(".note-container");
-          noteContainer.innerHTML = storedNotes || "";
-        }
-      });
+      // Add the following code inside the existing DOMContentLoaded event listener
+      const storedTodoList = localStorage.getItem("card9-todo-list");
+      if (storedTodoList) {
+        const todoList = document.getElementById("todo-list");
+        todoList.innerHTML = storedTodoList;
+      }
 
-      function showContent(cardNumber) {
-        const cardContents = {
-          1: `
+      const storedNotes = localStorage.getItem("card10-notes");
+      console.log(storedNotes);
+      if (storedNotes) {
+        const noteContainer = document.querySelector(".note-container");
+        noteContainer.innerHTML = storedNotes || "";
+      }
+    });
+
+    function showContent(cardNumber) {
+      const cardContents = {
+        1: `
                 <div class= "card1">
                   <div>
                     <textarea id="card1-input" placeholder="Enter information..." rows="2" cols="50"></textarea>
@@ -83,7 +84,7 @@
                   </div>
                 </div>
               `,
-          2: `
+        2: `
                 <div class="card2">
 
                   <div class="schedule-container">
@@ -121,7 +122,7 @@
 
                 </div>
               `,
-          3: `
+        3: `
                 <div class= "card3">
 
                   <div class="heading">
@@ -164,7 +165,7 @@
                     </ul>
                   </div>
               `,
-          4: `
+        4: `
                 <div class="card4">
 
                   <div class="headings">
@@ -195,7 +196,7 @@
 
                 </div>
               `,
-          5: `
+        5: `
                 <div class="card5">
 
                   <div class="heading">
@@ -244,7 +245,7 @@
 
                 </div>
               `,
-          6: `
+        6: `
               <div class="card6">
   
                 <div class="heading">
@@ -280,54 +281,56 @@
 
               </div>
               `,
-          7: `
-              <div class="card7">
+        7: `
+              <div class= "card7">
 
-                <div class="heading">
-                  <h2>Knowledge Base</h2>
-                </div>
+              <div class="kb-links">
+          
+                <ul>
+                  <li><a href="https://kb.info.business.govt.nz/questions/1076" target="_blank"><span>1706 - Caller identity validation and privacy requirements</span></a></li>
 
-                <div class="link-columns">
-    
-                <div class="link-column1">
-                  <ul>
-                    <li>
-                      <a href="https://kb.info.business.govt.nz/questions/1076" target="_blank"><span class="link-name">Caller identity validation and privacy requirements</span></a>
-                      <span class="li-number">1076</span>
-                    </li>
-                      <span class="li-number">2.</span>
-                      <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank"><span class="link-name">Link 2</span></a>
-                    </li>
-                    <li>
-                      <span class="link-number">3.</span>
-                      <a href="https://example.com/link3" target="_blank"><span class="link-name">Link 3</span></a>
-                    </li>
-                  </ul>
-                </div>
+                  <li><a href="https://kb.info.business.govt.nz/questions/2860" target="_blank"><span>2860 - EARs (Electronic Action Requests)</span></a></li>
 
-                <div class="link-column2">
-                  <ul>
-                    <li>
-                      <span class="link-number">4.</span>
-                      <a href="https://example.com/link4" target="_blank"><span class="link-name">Link 4</span></a>
-                    </li>
-                    <li>
-                      <span class="link-number">5.</span>
-                      <a href="https://example.com/link5" target="_blank"><span class="link-name">Link 5</span></a>
-                    </li>
-                      <li>
-                        <span class="link-number">6.</span>
-                        <a href="https://example.com/link6" target="_blank"><span class="link-name">Link 6</span></a>
-                      </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-              `,
-          8: `
+                  <li><a href="https://kb.info.business.govt.nz/questions/1077" target="_blank"><span>1077 - Updating details</span></a></li>
+                  
+                  <li><a href="https://kb.info.business.govt.nz/questions/2929" target="_blank"><span>2929 - Requests for documents from Bond2000</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/1081" target="_blank"><span>1081 - OIA, PIR, and interagency information requests</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/3192" target="_blank"><span>3192 - Bond Top Ups</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/1075" target="_blank"><span>1075 - Abbreviations and codes</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/2938" target="_blank"><span>2938 - Sending documents to customers</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/2884" target="_blank"><span>2884 - Deceased refunds, what happens when a landlord or tenant dies?</span></a></li>
+
+                  <li><a href="https://kb.info.business.govt.nz/questions/2887" target="_blank"><span>2887 - Where is my Form?</span></a></li>
+  </ul>
+</div>
+
+<div class="button">
+  <button onclick="openAllLinks()">Open All Links</button>
+</div>
+
+<div class="sub-heading-two">
+  <h3>Useful Links</h3>
+</div>
+
+<div class="links-two">
+  <ul>
+    <li><a href="https://mbienewzealand.sharepoint.com/sites/TeTaura-Hub" target="_blank"><span>MBIE Te Taura</span></a></li>
+    <li><a href="https://performancemanager10.successfactors.com/sf/home?company=MBIEPROD&loginMethod=SSO&_s.crb=N1urD3lFdWVaG5BDQ3q%252fiOIiqh5%252bKg3H%252bVF%252f5oQZ5Lk%253d" target="_blank"><span>Success Factor: Home</span></a></li>
+    <li><a href="https://www.mbieinformationresources.com/j/ep?AI=mOZS016s5NqL_C19&P1=frameset.htm" target="_blank"><span>MBIE Information Resources Portal</span></a></li>
+    <li><a href="https://www.legislation.govt.nz/act/public/1986/0120/latest/DLM94278.html" target="_blank"><span>Residential Tenancies Act 1986</span></a></li>
+    <li><a href="https://apmbi01.auondemand.com/NxIA/Portal/Evaluations/Dashboard.aspx" target="_blank"><span>Nice Quality Central</span></a></li>
+    <li><a href="https://mako.wd.govt.nz/otcs/llisapi.dll?func=ll.gettz&OTDS&NextURL=https%3A%2F%2Fmako%2Ewd%2Egovt%2Enz%2Fotcs%2Fllisapi%2Edll%3Ffunc%3Dll%26objId%3D140076146%26objAction%3Dbrowse%26viewType%3D1" target="_blank"><span>Mako Bond Outbound Call Project</span></a></li>
+  </ul>
+</div>`,
+        8: `
                 <!-- Content for Card 8 -->
               `,
-          9: `
+        9: `
                 <div class="card9">
                 
                   <div class="heading">
@@ -345,7 +348,7 @@
                 
                 </div>
               `,
-          10: `
+        10: `
                 <div class="card10">
                 
                   <div class="text-area">
@@ -361,328 +364,327 @@
                   </div>
       </div>
               `,
-        };
+      };
 
-        const mainContent = document.getElementById("main-content");
-        mainContent.innerHTML = cardContents[cardNumber];
+      const mainContent = document.getElementById("main-content");
+      mainContent.innerHTML = cardContents[cardNumber];
 
-        if (cardNumber === 1) {
-          // Inside the function for cardNumber 1 (as before)
-          const storedInfo = localStorage.getItem("card1-info");
-          if (storedInfo) {
-            const displayArea = document.getElementById("display-area");
-            displayArea.innerHTML = `<p>${storedInfo}</p>`;
-          }
-        }
-
-        if (cardNumber === 2) {
-          // Inside the function for cardNumber 2
-          const storedSchedule = localStorage.getItem("schedule");
-          if (storedSchedule) {
-            const scheduleDisplay = document.querySelector(".schedule-display");
-            scheduleDisplay.innerHTML = storedSchedule;
-          }
-        }
-
-        if (cardNumber === 9) {
-          // Inside the function for cardNumber 9
-          const storedTodoList = localStorage.getItem("card9-todo-list");
-          if (storedTodoList) {
-            const todoList = document.getElementById("todo-list");
-            todoList.innerHTML = storedTodoList;
-          }
-        }
-
-        if (cardNumber === 10) {
-          // Inside the function for cardNumber 10
-          const storedNotes = localStorage.getItem("card10-notes");
-          if (storedNotes) {
-            const noteContainer = document.querySelector(".note-container");
-            noteContainer.innerHTML = storedNotes || "";
-          }
+      if (cardNumber === 1) {
+        // Inside the function for cardNumber 1 (as before)
+        const storedInfo = localStorage.getItem("card1-info");
+        if (storedInfo) {
+          const displayArea = document.getElementById("display-area");
+          displayArea.innerHTML = `<p>${storedInfo}</p>`;
         }
       }
 
-      function displayInfo() {
-        const inputText = document.getElementById("card1-input").value;
-        const displayArea = document.getElementById("display-area");
-
-        // Convert newline characters to HTML line breaks
-        const formattedText = inputText.replace(/\n/g, "<br>");
-
-        displayArea.innerHTML = `<p>${formattedText}</p>`;
-
-        // Store the formatted information in localStorage
-        localStorage.setItem("card1-info", `<p>${formattedText}</p>`);
-      }
-
-      function clearInfo() {
-        document.getElementById("card1-input").value = "";
-        document.getElementById("display-area").innerHTML = "";
-
-        // Clear the stored information in localStorage
-        localStorage.removeItem("card1-info");
-      }
-
-      function displaySchedule() {
-        const scheduleContainer = document.querySelector(".schedule-container");
-        const scheduleEntries =
-          scheduleContainer.getElementsByClassName("schedule-entry");
-
-        const scheduleDisplay = document.querySelector(".schedule-display");
-        const scheduleList = document.createElement("ul");
-
-        Array.from(scheduleEntries).forEach((entry) => {
-          const scheduleType = entry.querySelector("#schedule-type").value;
-          const scheduleTime = entry.querySelector("#schedule-time").value;
-
-          if (scheduleTime) {
-            scheduleList.appendChild(
-              createScheduleItem(scheduleType, scheduleTime)
-            );
-
-            // Convert time to Date object for comparison
-            const scheduledTime = new Date();
-            const [hours, minutes] = scheduleTime.split(":");
-            scheduledTime.setHours(parseInt(hours, 10));
-            scheduledTime.setMinutes(parseInt(minutes, 10));
-
-            // Set up timers for notifications
-            setNotificationTimers(scheduledTime, scheduleType);
-          }
-        });
-
-        scheduleDisplay.innerHTML = "";
-        scheduleDisplay.appendChild(scheduleList);
-
-        // Store the schedule information in localStorage
-        localStorage.setItem("schedule", scheduleList.innerHTML);
-      }
-
-      function setNotificationTimers(scheduledTime, activity) {
-        const fiveMinutesBefore = new Date(
-          scheduledTime.getTime() - 5 * 60 * 1000
-        );
-        const oneMinuteBefore = new Date(
-          scheduledTime.getTime() - 1 * 60 * 1000
-        );
-
-        // Set up timers for notifications
-        setupTimer(fiveMinutesBefore, `5 minutes until ${activity}`);
-        setupTimer(oneMinuteBefore, `1 minute until ${activity}`);
-      }
-
-      function setupTimer(time, message) {
-        const now = new Date().getTime();
-        const timeDiff = time - now;
-
-        if (timeDiff > 0) {
-          setTimeout(() => {
-            // Display a Windows alert when the timer expires
-            window.alert(message);
-          }, timeDiff);
+      if (cardNumber === 2) {
+        // Inside the function for cardNumber 2
+        const storedSchedule = localStorage.getItem("schedule");
+        if (storedSchedule) {
+          const scheduleDisplay = document.querySelector(".schedule-display");
+          scheduleDisplay.innerHTML = storedSchedule;
         }
       }
 
-      function createScheduleItem(activity, time) {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${
-          activity.charAt(0).toUpperCase() +
-          activity.slice(1).replace(/-/g, " ")
+      if (cardNumber === 9) {
+        // Inside the function for cardNumber 9
+        const storedTodoList = localStorage.getItem("card9-todo-list");
+        if (storedTodoList) {
+          const todoList = document.getElementById("todo-list");
+          todoList.innerHTML = storedTodoList;
+        }
+      }
+
+      if (cardNumber === 10) {
+        // Inside the function for cardNumber 10
+        const storedNotes = localStorage.getItem("card10-notes");
+        if (storedNotes) {
+          const noteContainer = document.querySelector(".note-container");
+          noteContainer.innerHTML = storedNotes || "";
+        }
+      }
+    }
+
+    function displayInfo() {
+      const inputText = document.getElementById("card1-input").value;
+      const displayArea = document.getElementById("display-area");
+
+      // Convert newline characters to HTML line breaks
+      const formattedText = inputText.replace(/\n/g, "<br>");
+
+      displayArea.innerHTML = `<p>${formattedText}</p>`;
+
+      // Store the formatted information in localStorage
+      localStorage.setItem("card1-info", `<p>${formattedText}</p>`);
+    }
+
+    function clearInfo() {
+      document.getElementById("card1-input").value = "";
+      document.getElementById("display-area").innerHTML = "";
+
+      // Clear the stored information in localStorage
+      localStorage.removeItem("card1-info");
+    }
+
+    function displaySchedule() {
+      const scheduleContainer = document.querySelector(".schedule-container");
+      const scheduleEntries =
+        scheduleContainer.getElementsByClassName("schedule-entry");
+
+      const scheduleDisplay = document.querySelector(".schedule-display");
+      const scheduleList = document.createElement("ul");
+
+      Array.from(scheduleEntries).forEach((entry) => {
+        const scheduleType = entry.querySelector("#schedule-type").value;
+        const scheduleTime = entry.querySelector("#schedule-time").value;
+
+        if (scheduleTime) {
+          scheduleList.appendChild(
+            createScheduleItem(scheduleType, scheduleTime)
+          );
+
+          // Convert time to Date object for comparison
+          const scheduledTime = new Date();
+          const [hours, minutes] = scheduleTime.split(":");
+          scheduledTime.setHours(parseInt(hours, 10));
+          scheduledTime.setMinutes(parseInt(minutes, 10));
+
+          // Set up timers for notifications
+          setNotificationTimers(scheduledTime, scheduleType);
+        }
+      });
+
+      scheduleDisplay.innerHTML = "";
+      scheduleDisplay.appendChild(scheduleList);
+
+      // Store the schedule information in localStorage
+      localStorage.setItem("schedule", scheduleList.innerHTML);
+    }
+
+    function setNotificationTimers(scheduledTime, activity) {
+      const fiveMinutesBefore = new Date(
+        scheduledTime.getTime() - 5 * 60 * 1000
+      );
+      const oneMinuteBefore = new Date(
+        scheduledTime.getTime() - 1 * 60 * 1000
+      );
+
+      // Set up timers for notifications
+      setupTimer(fiveMinutesBefore, `5 minutes until ${activity}`);
+      setupTimer(oneMinuteBefore, `1 minute until ${activity}`);
+    }
+
+    function setupTimer(time, message) {
+      const now = new Date().getTime();
+      const timeDiff = time - now;
+
+      if (timeDiff > 0) {
+        setTimeout(() => {
+          // Display a Windows alert when the timer expires
+          window.alert(message);
+        }, timeDiff);
+      }
+    }
+
+    function createScheduleItem(activity, time) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${activity.charAt(0).toUpperCase() +
+        activity.slice(1).replace(/-/g, " ")
         }: ${time}`;
-        return listItem;
+      return listItem;
+    }
+
+    function clearSchedule() {
+      document.querySelector(".schedule-display").innerHTML = "";
+
+      // Clear the stored schedule information in localStorage
+      localStorage.removeItem("schedule");
+    }
+
+    function openAllLinks() {
+      const links = [
+        "https://www.tenancy.govt.nz",
+        "https://kb.info.business.govt.nz/topics/3/questions",
+        "file://wd.govt.nz/dfs/SharedData/Wellington/Bowen%20Street/Help%20and%20Manual%20Projects/Published%20Projects/Service%20Centre%20Manual/index.html",
+        "https://pulse.cces.one.nz/pulse/plugins/pulse/#/",
+        "https://wfm.cces.one.nz/wfm/login",
+        "https://www.google.com/maps",
+        "http://crm/CASE/main.aspx",
+        "https://outlook.office.com/mail/bonds@tenancy.govt.nz/",
+      ];
+
+      links.forEach((link) => window.open(link, "_blank"));
+    }
+
+    function showButtonContent(buttonLabel) {
+      const contentDisplay = document.querySelector(".content-display");
+      const buttonContent = getButtonContent(buttonLabel);
+
+      // Display content in the container
+      contentDisplay.innerHTML = `<p>${buttonContent}</p>`;
+
+      // Copy content to clipboard (use the same function as in card 5)
+      copyToClipboardCard5(buttonContent);
+    }
+
+
+    function getButtonContent(buttonLabel) {
+      // Define content for each button label
+      const buttonContents = {
+        "BRF Status": `XX called about BRF status.<br><br>Status:<br><br>==> Bank Account Missing<br>==>Signature Missing or Differs<br><br>Advised the XX to send COD + ID and call us after to confirm we received. <br><br>After receiving email and checked if ok, send EAR to refund.`,
+
+        "Dispute-cor": `XX Called and asked to place the bond into dispute.`,
+
+        "Dispute-ear": `Kia Ora XX<br><br>Please place this bond into dispute as requested by XX.<br><br>Thanks!`,
+
+        "COD Reply": `XX has sent email with COD + ID / Bank Account.<br><br>Email  ==> <br>Date and Time  ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
+
+        Refund: `Kia Ora XX<br><br>Please refund as below:<br><br>TITLE NAME $ AMOUNT to bank account: XX XXXX XXXXXXX XX<br><br>Thanks!`,
+
+        "S22 Reply": `XX has sent email with S22 Reply <br><br>Email  ==><br>Date and Time  ==><br>Reply Status ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
+        // Add content for other buttons here
+      };
+
+      // Return content for the specified button label
+      return buttonContents[buttonLabel] || "No content available.";
+    }
+
+    function copyToClipboard(text) {
+      // Replace <br> with newline characters
+      const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
+
+      // Create a temporary textarea to copy plain text to clipboard
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = plainText;
+      document.body.appendChild(tempTextArea);
+
+      // Select the text in the textarea
+      tempTextArea.select();
+      tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+
+      // Copy to clipboard
+      document.execCommand("copy");
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback (you can customize this)
+      alert(`Content copied to clipboard:\n${plainText}`);
+    }
+
+    function showButtonContentCard5(buttonLabel) {
+      const contentDisplayCard5 = document.querySelector(
+        ".content-display-card5"
+      );
+      const buttonContentCard5 = getButtonContentCard5(buttonLabel);
+
+      // Display content in the container
+      contentDisplayCard5.innerHTML = `<p>${buttonContentCard5}</p>`;
+
+      // Copy content to clipboard
+      copyToClipboardCard5(buttonContentCard5);
+    }
+
+    function getButtonContentCard5(buttonLabel) {
+      // Define content for each button label in Card 5
+      const buttonContentsCard5 = {
+        Sucessful: `Details of the phone call: <br>- name of person you spoke with ><br>- phone number you used ><br>- email you used ><br>- time that you made the call ><br>- summary of the phone call/action taken:<br><br>Advised about refund process.<br>Uncollected email sent.`,
+
+        Unsucessful: `Details of the phone call: <br>- phone number/s you used ><br>- email you used ><br>- time that you made the call ><br>- Unsuccessful in making contact.<br><br>Did not left a message.<br>Uncollected email sent (unless no email on record).`,
+        // Add content for other buttons here
+      };
+
+      // Return content for the specified button label
+      return buttonContentsCard5[buttonLabel] || "No content available.";
+    }
+
+    function copyToClipboardCard5(text) {
+      // Replace <br> with newline characters
+      const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
+
+      // Create a temporary textarea to copy plain text to clipboard
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = plainText;
+      document.body.appendChild(tempTextArea);
+
+      // Select the text in the textarea
+      tempTextArea.select();
+      tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+
+      // Copy to clipboard
+      document.execCommand("copy");
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback (you can customize this)
+      alert(`Content copied to clipboard:\n${plainText}`);
+    }
+
+    function addScheduleEntry() {
+      const scheduleContainer = document.querySelector(".schedule-container");
+
+      // Create a new schedule entry div
+      const newScheduleEntry = document.createElement("div");
+      newScheduleEntry.className = "schedule-entry"; // Apply the card2 class
+      newScheduleEntry.id = "schedule-entry"; // Apply the schedule-entry id
+
+      // Schedule Type Selector
+      const scheduleTypeLabel = document.createElement("label");
+      scheduleTypeLabel.textContent = "Activity Type:";
+      const scheduleTypeSelector = document.createElement("select");
+      scheduleTypeSelector.id = "schedule-type";
+      const activityTypes = [
+        "work",
+        "break",
+        "ert",
+        "meeting",
+        "exception",
+      ];
+      activityTypes.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent =
+          type.charAt(0).toUpperCase() + type.slice(1).replace(/-/g, " ");
+        scheduleTypeSelector.appendChild(option);
+      });
+
+      // Schedule Time Input
+      const scheduleTimeLabel = document.createElement("label");
+      scheduleTimeLabel.textContent = "Time:";
+      const scheduleTimeInput = document.createElement("input");
+      scheduleTimeInput.type = "time";
+      scheduleTimeInput.id = "schedule-time";
+
+      // Append elements to the new schedule entry div
+      newScheduleEntry.appendChild(scheduleTypeLabel);
+      newScheduleEntry.appendChild(scheduleTypeSelector);
+      newScheduleEntry.appendChild(scheduleTimeLabel);
+      newScheduleEntry.appendChild(scheduleTimeInput);
+
+      // Append the new schedule entry to the container
+      scheduleContainer.appendChild(newScheduleEntry);
+    }
+
+    function saveNote() {
+      console.log("Saving note");
+
+      const noteInput = document.getElementById("note-input").value;
+
+      if (noteInput.trim() === "") {
+        // Do not save empty notes
+        return;
       }
 
-      function clearSchedule() {
-        document.querySelector(".schedule-display").innerHTML = "";
+      const noteContainer = document.querySelector(".note-container");
 
-        // Clear the stored schedule information in localStorage
-        localStorage.removeItem("schedule");
-      }
+      // Create a new note container
+      const newNote = document.createElement("div");
+      newNote.className = "note";
 
-      function openAllLinks() {
-        const links = [
-          "https://www.tenancy.govt.nz",
-          "https://kb.info.business.govt.nz/topics/3/questions",
-          "file://wd.govt.nz/dfs/SharedData/Wellington/Bowen%20Street/Help%20and%20Manual%20Projects/Published%20Projects/Service%20Centre%20Manual/index.html",
-          "https://pulse.cces.one.nz/pulse/plugins/pulse/#/",
-          "https://wfm.cces.one.nz/wfm/login",
-          "https://www.google.com/maps",
-          "http://crm/CASE/main.aspx",
-          "https://outlook.office.com/mail/bonds@tenancy.govt.nz/",
-        ];
-
-        links.forEach((link) => window.open(link, "_blank"));
-      }
-
-      function showButtonContent(buttonLabel) {
-  const contentDisplay = document.querySelector(".content-display");
-  const buttonContent = getButtonContent(buttonLabel);
-
-  // Display content in the container
-  contentDisplay.innerHTML = `<p>${buttonContent}</p>`;
-
-  // Copy content to clipboard (use the same function as in card 5)
-  copyToClipboardCard5(buttonContent);
-}
-
-
-      function getButtonContent(buttonLabel) {
-        // Define content for each button label
-        const buttonContents = {
-          "BRF Status": `XX called about BRF status.<br><br>Status:<br><br>==> Bank Account Missing<br>==>Signature Missing or Differs<br><br>Advised the XX to send COD + ID and call us after to confirm we received. <br><br>After receiving email and checked if ok, send EAR to refund.`,
-
-          "Dispute-cor": `XX Called and asked to place the bond into dispute.`,
-
-          "Dispute-ear": `Kia Ora XX<br><br>Please place this bond into dispute as requested by XX.<br><br>Thanks!`,
-
-          "COD Reply": `XX has sent email with COD + ID / Bank Account.<br><br>Email  ==> <br>Date and Time  ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
-
-          Refund: `Kia Ora XX<br><br>Please refund as below:<br><br>TITLE NAME $ AMOUNT to bank account: XX XXXX XXXXXXX XX<br><br>Thanks!`,
-
-          "S22 Reply": `XX has sent email with S22 Reply <br><br>Email  ==><br>Date and Time  ==><br>Reply Status ==><br><br>As everything looks ok I will send EAR to the bond to be refunded.`,
-          // Add content for other buttons here
-        };
-
-        // Return content for the specified button label
-        return buttonContents[buttonLabel] || "No content available.";
-      }
-
-      function copyToClipboard(text) {
-        // Replace <br> with newline characters
-        const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
-
-        // Create a temporary textarea to copy plain text to clipboard
-        const tempTextArea = document.createElement("textarea");
-        tempTextArea.value = plainText;
-        document.body.appendChild(tempTextArea);
-
-        // Select the text in the textarea
-        tempTextArea.select();
-        tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
-
-        // Copy to clipboard
-        document.execCommand("copy");
-
-        // Remove the temporary textarea
-        document.body.removeChild(tempTextArea);
-
-        // Provide some visual feedback (you can customize this)
-        alert(`Content copied to clipboard:\n${plainText}`);
-      }
-
-      function showButtonContentCard5(buttonLabel) {
-        const contentDisplayCard5 = document.querySelector(
-          ".content-display-card5"
-        );
-        const buttonContentCard5 = getButtonContentCard5(buttonLabel);
-
-        // Display content in the container
-        contentDisplayCard5.innerHTML = `<p>${buttonContentCard5}</p>`;
-
-        // Copy content to clipboard
-        copyToClipboardCard5(buttonContentCard5);
-      }
-
-      function getButtonContentCard5(buttonLabel) {
-        // Define content for each button label in Card 5
-        const buttonContentsCard5 = {
-          Sucessful: `Details of the phone call: <br>- name of person you spoke with ><br>- phone number you used ><br>- email you used ><br>- time that you made the call ><br>- summary of the phone call/action taken:<br><br>Advised about refund process.<br>Uncollected email sent.`,
-
-          Unsucessful: `Details of the phone call: <br>- phone number/s you used ><br>- email you used ><br>- time that you made the call ><br>- Unsuccessful in making contact.<br><br>Did not left a message.<br>Uncollected email sent (unless no email on record).`,
-          // Add content for other buttons here
-        };
-
-        // Return content for the specified button label
-        return buttonContentsCard5[buttonLabel] || "No content available.";
-      }
-
-      function copyToClipboardCard5(text) {
-        // Replace <br> with newline characters
-        const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
-
-        // Create a temporary textarea to copy plain text to clipboard
-        const tempTextArea = document.createElement("textarea");
-        tempTextArea.value = plainText;
-        document.body.appendChild(tempTextArea);
-
-        // Select the text in the textarea
-        tempTextArea.select();
-        tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
-
-        // Copy to clipboard
-        document.execCommand("copy");
-
-        // Remove the temporary textarea
-        document.body.removeChild(tempTextArea);
-
-        // Provide some visual feedback (you can customize this)
-        alert(`Content copied to clipboard:\n${plainText}`);
-      }
-
-      function addScheduleEntry() {
-        const scheduleContainer = document.querySelector(".schedule-container");
-
-        // Create a new schedule entry div
-        const newScheduleEntry = document.createElement("div");
-        newScheduleEntry.className = "schedule-entry"; // Apply the card2 class
-        newScheduleEntry.id = "schedule-entry"; // Apply the schedule-entry id
-
-        // Schedule Type Selector
-        const scheduleTypeLabel = document.createElement("label");
-        scheduleTypeLabel.textContent = "Activity Type:";
-        const scheduleTypeSelector = document.createElement("select");
-        scheduleTypeSelector.id = "schedule-type";
-        const activityTypes = [
-          "work",
-          "break",
-          "ert",
-          "meeting",
-          "exception",
-        ];
-        activityTypes.forEach((type) => {
-          const option = document.createElement("option");
-          option.value = type;
-          option.textContent =
-            type.charAt(0).toUpperCase() + type.slice(1).replace(/-/g, " ");
-          scheduleTypeSelector.appendChild(option);
-        });
-
-        // Schedule Time Input
-        const scheduleTimeLabel = document.createElement("label");
-        scheduleTimeLabel.textContent = "Time:";
-        const scheduleTimeInput = document.createElement("input");
-        scheduleTimeInput.type = "time";
-        scheduleTimeInput.id = "schedule-time";
-
-        // Append elements to the new schedule entry div
-        newScheduleEntry.appendChild(scheduleTypeLabel);
-        newScheduleEntry.appendChild(scheduleTypeSelector);
-        newScheduleEntry.appendChild(scheduleTimeLabel);
-        newScheduleEntry.appendChild(scheduleTimeInput);
-
-        // Append the new schedule entry to the container
-        scheduleContainer.appendChild(newScheduleEntry);
-      }
-
-      function saveNote() {
-        console.log("Saving note");
-
-        const noteInput = document.getElementById("note-input").value;
-
-        if (noteInput.trim() === "") {
-          // Do not save empty notes
-          return;
-        }
-
-        const noteContainer = document.querySelector(".note-container");
-
-        // Create a new note container
-        const newNote = document.createElement("div");
-        newNote.className = "note";
-
-        // Display the note content
-        newNote.innerHTML = `
+      // Display the note content
+      newNote.innerHTML = `
           <p>${noteInput}</p>
           <div>
             <button onclick="copyNoteToClipboard(this)">Copy to Clipboard</button>
@@ -690,136 +692,138 @@
           </div>
         `;
 
-        // Append the new note container to the note container
-        noteContainer.appendChild(newNote);
+      // Append the new note container to the note container
+      noteContainer.appendChild(newNote);
 
-        // Store the updated notes in localStorage
-        localStorage.setItem("card10-notes", noteContainer.innerHTML);
+      // Store the updated notes in localStorage
+      localStorage.setItem("card10-notes", noteContainer.innerHTML);
 
-        // Clear the note input
-        document.getElementById("note-input").value = "";
+      // Clear the note input
+      document.getElementById("note-input").value = "";
 
-        // Log the stored notes to check if they are updated
-        const storedNotes = localStorage.getItem("card10-notes");
-        console.log("Stored notes:", storedNotes);
+      // Log the stored notes to check if they are updated
+      const storedNotes = localStorage.getItem("card10-notes");
+      console.log("Stored notes:", storedNotes);
+    }
+
+    function copyNoteToClipboard(button) {
+      const noteContent =
+        button.parentNode.parentNode.querySelector("p").textContent;
+
+      // Copy note content to clipboard
+      copyToClipboard(noteContent);
+    }
+
+    function clearNoteContainer(button) {
+      const noteContainer = button.parentNode.parentNode;
+      noteContainer.remove();
+
+      // Update: Remove only the specific note from localStorage
+      const updatedNotes =
+        document.querySelector(".note-container").innerHTML;
+      localStorage.setItem("card10-notes", updatedNotes);
+    }
+
+    function copyToClipboard(text) {
+      // Replace <br> with newline characters
+      const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
+
+      // Create a temporary textarea to copy plain text to clipboard
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = plainText;
+      document.body.appendChild(tempTextArea);
+
+      // Select the text in the textarea
+      tempTextArea.select();
+      tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
+
+      // Copy to clipboard
+      document.execCommand("copy");
+
+      // Remove the temporary textarea
+      document.body.removeChild(tempTextArea);
+
+      // Provide some visual feedback (you can customize this)
+      alert(`Content copied to clipboard:\n${plainText}`);
+    }
+
+    function addTodoItem() {
+      const todoInput = document.getElementById("todo-input");
+      const todoList = document.getElementById("todo-list");
+
+      const todoText = todoInput.value.trim();
+      if (todoText === "") {
+        return; // Do not add empty items
       }
 
-      function copyNoteToClipboard(button) {
-        const noteContent =
-          button.parentNode.parentNode.querySelector("p").textContent;
-
-        // Copy note content to clipboard
-        copyToClipboard(noteContent);
-      }
-
-      function clearNoteContainer(button) {
-        const noteContainer = button.parentNode.parentNode;
-        noteContainer.remove();
-
-        // Update: Remove only the specific note from localStorage
-        const updatedNotes =
-          document.querySelector(".note-container").innerHTML;
-        localStorage.setItem("card10-notes", updatedNotes);
-      }
-
-      function copyToClipboard(text) {
-        // Replace <br> with newline characters
-        const plainText = text.replace(/<br\s*[/]?>/gi, "\n");
-
-        // Create a temporary textarea to copy plain text to clipboard
-        const tempTextArea = document.createElement("textarea");
-        tempTextArea.value = plainText;
-        document.body.appendChild(tempTextArea);
-
-        // Select the text in the textarea
-        tempTextArea.select();
-        tempTextArea.setSelectionRange(0, 99999); /* For mobile devices */
-
-        // Copy to clipboard
-        document.execCommand("copy");
-
-        // Remove the temporary textarea
-        document.body.removeChild(tempTextArea);
-
-        // Provide some visual feedback (you can customize this)
-        alert(`Content copied to clipboard:\n${plainText}`);
-      }
-
-      function addTodoItem() {
-        const todoInput = document.getElementById("todo-input");
-        const todoList = document.getElementById("todo-list");
-
-        const todoText = todoInput.value.trim();
-        if (todoText === "") {
-          return; // Do not add empty items
-        }
-
-        const todoItem = document.createElement("li");
-        todoItem.innerHTML = `
+      const todoItem = document.createElement("li");
+      todoItem.innerHTML = `
     <input type="checkbox" onchange="removeTodoItem(this)">
     <span>${todoText}</span>
   `;
 
-        todoList.appendChild(todoItem);
-        todoInput.value = "";
+      todoList.appendChild(todoItem);
+      todoInput.value = "";
 
-        // Store the updated to-do list in localStorage
-        updateTodoListStorage();
+      // Store the updated to-do list in localStorage
+      updateTodoListStorage();
+    }
+
+    function removeTodoItem(checkbox) {
+      const todoItem = checkbox.parentNode;
+      const todoList = document.getElementById("todo-list");
+
+      // Check if the item is marked as completed (strikethrough)
+      const isCompleted = todoItem.classList.contains("completed");
+
+      if (!isCompleted) {
+        // If it's not completed, mark it as completed (strikethrough)
+        todoItem.classList.add("completed");
+      } else {
+        // If it's already completed, remove the item from the list
+        todoList.removeChild(todoItem);
       }
 
-      function removeTodoItem(checkbox) {
-        const todoItem = checkbox.parentNode;
-        const todoList = document.getElementById("todo-list");
+      // Store the updated to-do list in localStorage
+      updateTodoListStorage();
+    }
 
-        // Check if the item is marked as completed (strikethrough)
-        const isCompleted = todoItem.classList.contains("completed");
+    function updateTodoListStorage() {
+      const todoList = document.getElementById("todo-list");
+      localStorage.setItem("card9-todo-list", todoList.innerHTML);
+    }
 
-        if (!isCompleted) {
-          // If it's not completed, mark it as completed (strikethrough)
-          todoItem.classList.add("completed");
+    const hiddenUsernames = ["olireisb", "mbie_AdvisorPulse", "mbie_oliveib1"]; // Add more usernames as needed
+    const hiddenPasswords = ["B2kChampion#", "Display2000", "Genesys8554#"]; // Add more passwords as needed
+
+    function copyToClipboard(text) {
+      // Copy text to clipboard without showing an alert
+      const tempTextArea = document.createElement("textarea");
+      tempTextArea.value = text;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempTextArea);
+    }
+
+    function showPassword(username, password) {
+      const pin = prompt("Enter PIN to show password:");
+      if (pin === "8554") {
+        const index = hiddenUsernames.indexOf(username);
+        if (index !== -1) {
+          // Display username and password in an alert
+          alert(
+            `Username: ${hiddenUsernames[index]}\nPassword: ${hiddenPasswords[index]}`
+          );
         } else {
-          // If it's already completed, remove the item from the list
-          todoList.removeChild(todoItem);
+          alert("Invalid username");
         }
-
-        // Store the updated to-do list in localStorage
-        updateTodoListStorage();
+      } else {
+        alert("Incorrect PIN. Password cannot be shown.");
       }
+    }
 
-      function updateTodoListStorage() {
-        const todoList = document.getElementById("todo-list");
-        localStorage.setItem("card9-todo-list", todoList.innerHTML);
-      }
+  </script>
+</body>
 
-      const hiddenUsernames = ["olireisb", "mbie_AdvisorPulse", "mbie_oliveib1"]; // Add more usernames as needed
-      const hiddenPasswords = ["B2kChampion#", "Display2000", "Genesys8554#"]; // Add more passwords as needed
-
-      function copyToClipboard(text) {
-        // Copy text to clipboard without showing an alert
-        const tempTextArea = document.createElement("textarea");
-        tempTextArea.value = text;
-        document.body.appendChild(tempTextArea);
-        tempTextArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempTextArea);
-      }
-
-      function showPassword(username, password) {
-        const pin = prompt("Enter PIN to show password:");
-        if (pin === "8554") {
-          const index = hiddenUsernames.indexOf(username);
-          if (index !== -1) {
-            // Display username and password in an alert
-            alert(
-              `Username: ${hiddenUsernames[index]}\nPassword: ${hiddenPasswords[index]}`
-            );
-          } else {
-            alert("Invalid username");
-          }
-        } else {
-          alert("Incorrect PIN. Password cannot be shown.");
-        }
-      }
-    </script>
-  </body>
 </html>
